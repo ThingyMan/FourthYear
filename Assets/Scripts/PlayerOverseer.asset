@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3482f598ada9646b578c2657246741, type: 3}
+  m_Name: PlayerOverseer
+  m_EditorClassIdentifier: 
+  floats: []
+  currentWeapon: 0
+  _swordHeavyAttacks: 0000000001000000020000000100000000000000
+  _weaponNormalPositions:
+  - {x: 0, y: 0, z: 0}
+  _weaponNormalRotations:
+  - {x: 0, y: 0, z: 0, w: 0}
+  _weaponTrans:
+  - {fileID: 8882501665797584080, guid: b9866d252b4ab5e44b1929cf9285ba6d, type: 3}
