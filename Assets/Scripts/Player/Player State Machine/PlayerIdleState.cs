@@ -82,10 +82,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             SwitchState(_factory.AttackL());
         }
-        if(_ctx.IsHeavyAttacking == true)
-        {
-            SwitchState(_factory.Charging());
-        }
+        //if(_ctx.IsHeavyAttacking == true)
+        //{
+        //    SwitchState(_factory.Charging());
+        //}
 
         if (_ctx.TiltingStick == true && _ctx.IsAttacking == false)
         {

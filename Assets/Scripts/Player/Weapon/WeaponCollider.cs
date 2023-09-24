@@ -32,6 +32,8 @@ public class WeaponCollider : MonoBehaviour
     public bool canLaunch = false;
 
     public float dragValue = 1f;
+
+    public GameObject[] VFXs;
     // Start is called before the first frame update
     void Start()
     {

@@ -334,7 +334,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
 
         //player falls faster overtime
-        if (rb.velocity.y < 0f)
+        if (rb.velocity.y < 0f && rb.useGravity == true)
         {
             rb.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
         }

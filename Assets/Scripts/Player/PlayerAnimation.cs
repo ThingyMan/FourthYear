@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -30,10 +29,15 @@ public class PlayerAnimation : MonoBehaviour
     float currentForwardForce = 0;
     bool pushForward = false;
     bool startedNewAirAttack = false;
+    public Transform vfxPos;
+    public Transform vfxParent;
+    public PlayerSlashVFX slashVFX;
     // Start is called before the first frame update
     void Start()
     {
         weaponCol = GameObject.FindGameObjectWithTag("WeaponCol");
+        vfxPos = gameObject.transform.Find("vfxPos");
+        vfxParent = gameObject.transform.Find("VFX_Parent");
         weaponCollider = weaponCol.GetComponent<WeaponCollider>();
         _ctx = GetComponent<PlayerStateMachine>();
         animator = this.GetComponent<Animator>();
@@ -69,6 +73,32 @@ public class PlayerAnimation : MonoBehaviour
         activeWeapon.downwardsForce = float.Parse(strings[3]);
         activeWeapon.leftForce = float.Parse(strings[4]);
         activeWeapon.rightForce = float.Parse(strings[5]);
+    }
+
+    public void SetPushForce(string floats)
+    {
+        string[] strings = null;
+        strings = floats.Split(',');
+        //activeWeapon.forwardForce = float.Parse(strings[0]);
+        //activeWeapon.backwardForce = float.Parse(strings[1]);
+        //activeWeapon.upwardsForce = float.Parse(strings[2]);
+        //activeWeapon.downwardsForce = float.Parse(strings[3]);
+        //activeWeapon.leftForce = float.Parse(strings[4]);
+        //activeWeapon.rightForce = float.Parse(strings[5]);
+
+        rb.AddForce(gameObject.transform.forward * float.Parse(strings[0]), ForceMode.Impulse);
+        rb.AddForce(gameObject.transform.forward * -float.Parse(strings[1]), ForceMode.Impulse);
+        rb.AddForce(gameObject.transform.up * float.Parse(strings[2]), ForceMode.Impulse);
+        rb.AddForce(gameObject.transform.up * -float.Parse(strings[3]), ForceMode.Impulse);
+        rb.AddForce(gameObject.transform.right * float.Parse(strings[4]), ForceMode.Impulse);
+        rb.AddForce(gameObject.transform.right * -float.Parse(strings[5]), ForceMode.Impulse);
+    }
+
+    public void PlayVFX(int vfxID)
+    {
+        //weaponCollider.VFXs[vfxID].Play();
+        //StartCoroutine(slashVFX.SlashAttack());
+        Instantiate(weaponCollider.VFXs[vfxID], vfxPos.position, vfxPos.rotation, vfxParent);
     }
 
     public void SetWeaponColliderSize(string floats)
@@ -219,39 +249,39 @@ public class PlayerAnimation : MonoBehaviour
         //forceDirection = Vector3.zero;
     }
 
-    public void PushUp(float upwardsForce)
-    {
-        rb.AddForce(gameObject.transform.up * upwardsForce, ForceMode.Impulse);
-    }
+    //public void PushUp(float upwardsForce)
+    //{
+    //    rb.AddForce(gameObject.transform.up * upwardsForce, ForceMode.Impulse);
+    //}
 
-    public void PushDown(float downwardsForce)
-    {
-        rb.AddForce(gameObject.transform.up * -downwardsForce, ForceMode.Impulse);
-    }
+    //public void PushDown(float downwardsForce)
+    //{
+    //    rb.AddForce(gameObject.transform.up * -downwardsForce, ForceMode.Impulse);
+    //}
 
-    public void PushForward(float forwardForce)
-    {
-        currentForwardForce = forwardForce;
-        pushForward = true;
+    //public void PushForward(float forwardForce)
+    //{
+    //    currentForwardForce = forwardForce;
+    //    pushForward = true;
         
-        //_ctx.testBool2 = true;
-        //rb.AddForce(gameObject.transform.forward * forwardForce, ForceMode.Impulse);
-    }
+    //    //_ctx.testBool2 = true;
+    //    //rb.AddForce(gameObject.transform.forward * forwardForce, ForceMode.Impulse);
+    //}
 
-    public void PushBackward(float backWardsForce)
-    {
-        rb.AddForce(gameObject.transform.forward * -backWardsForce, ForceMode.Impulse);
-    }
+    //public void PushBackward(float backWardsForce)
+    //{
+    //    rb.AddForce(gameObject.transform.forward * -backWardsForce, ForceMode.Impulse);
+    //}
 
-    public void PushLeft(float leftForce)
-    {
-        rb.AddForce(gameObject.transform.right * -leftForce, ForceMode.Impulse);
-    }
+    //public void PushLeft(float leftForce)
+    //{
+    //    rb.AddForce(gameObject.transform.right * -leftForce, ForceMode.Impulse);
+    //}
 
-    public void PushRight(float rightForce)
-    {
-        rb.AddForce(gameObject.transform.right * rightForce, ForceMode.Impulse);
-    }
+    //public void PushRight(float rightForce)
+    //{
+    //    rb.AddForce(gameObject.transform.right * rightForce, ForceMode.Impulse);
+    //}
 
 
 
