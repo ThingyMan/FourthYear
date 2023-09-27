@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GoblinStateMachine : MonoBehaviour
 {
+    public GameObject player;
+    public Collider playerCol;
     public bool testBool;
     public bool showGizmo = false;
 
@@ -42,6 +44,7 @@ public class GoblinStateMachine : MonoBehaviour
     int _smashedHash;
     int _postureHash;
     int _flinchHash;
+    int _deathHash;
 
 
     #region GETTERS & SETTERS
@@ -66,6 +69,7 @@ public class GoblinStateMachine : MonoBehaviour
     public int SmashedHash { get { return _smashedHash; } set { _smashedHash = value; } }
     public int PostureHash { get { return _postureHash; } set { _postureHash = value; } }
     public int FlinchHash { get { return _flinchHash; } set { _flinchHash = value; } }
+    public int DeathHash { get { return _deathHash; } set { _deathHash = value; } }
     #endregion
 
 
@@ -75,6 +79,10 @@ public class GoblinStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        playerCol = player.GetComponent<Collider>();
+        //Physics.IgnoreCollision(playerCol, GetComponent<Collider>());
+
         enemyCol = GetComponent<EnemyCollider>();
         groundCheckPos = gameObject.transform.Find("Ground_Check_Pos");
         _animator = GetComponent<Animator>();
@@ -90,6 +98,7 @@ public class GoblinStateMachine : MonoBehaviour
         _smashedHash = Animator.StringToHash("Smashed");
         _postureHash = Animator.StringToHash("Posture");
         _flinchHash = Animator.StringToHash("Flinch");
+        _deathHash = Animator.StringToHash("Dead");
 
         Animator.SetBool(_groundedHash, true);
     }
@@ -118,6 +127,14 @@ public class GoblinStateMachine : MonoBehaviour
 
         activeState = _currentState.ToString();
         activeSubState = _currentState._currentSubState.ToString();
+    }
+
+    private void FixedUpdate()
+    {
+        if (rb.velocity.y < 0f && rb.useGravity == true)
+        {
+            rb.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
+        }
     }
 
     void GroundCheck()

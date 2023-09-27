@@ -34,6 +34,7 @@ public class WeaponCollider : MonoBehaviour
     public float dragValue = 1f;
 
     public GameObject[] VFXs;
+    public GameObject[] hitVFXs;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +88,9 @@ public class WeaponCollider : MonoBehaviour
                 //{
                 //    other.gameObject.GetComponent<EnemyCollider>().wasLaunched = true;
                 //}
+
+                Instantiate(hitVFXs[0], other.gameObject.transform.position, other.transform.rotation, other.gameObject.transform);
+                Instantiate(hitVFXs[1], other.gameObject.transform.position, other.transform.rotation, other.gameObject.transform);
 
                 //if the attack cancels the enemies gravity
                 if (disableEnemyGravity == true)

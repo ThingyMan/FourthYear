@@ -26896,13 +26896,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: DisableMovement
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: isRolling
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -26910,10 +26903,10 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: PushForward
+    functionName: DisableMovement
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 20
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
@@ -26923,9 +26916,9 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.125
+  - time: 0
     functionName: SetPushForce
-    data: 20,0,0,0,0,0
+    data: 0.5,0,0,0,0,0
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

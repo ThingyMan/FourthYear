@@ -43,6 +43,7 @@ public class PlayerStateMachine : MonoBehaviour
     public GameObject ClosestObject;
     float distance;
     public float pointRaidus;
+    GameObject playerBlocker;
 
 
     //Camera
@@ -207,6 +208,8 @@ public class PlayerStateMachine : MonoBehaviour
         _animator = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         playerControls = new Controls();
+        //playerBlocker = GameObject.FindGameObjectWithTag("PlayerBlocker");
+        //Physics.IgnoreCollision(playerBlocker.GetComponent<Collider>(), GetComponent<Collider>());
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         //_currentState._currentSubState = _states.Idle();

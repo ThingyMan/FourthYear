@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Explosion 3 + Screen Distortion
       objectReference: {fileID: 0}
-    - target: {fileID: 3275800543088581281, guid: 662372284ddeee54fad3c2462587922e,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6120277183283540710, guid: 662372284ddeee54fad3c2462587922e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3275800543088581281, guid: 662372284ddeee54fad3c2462587922e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662372284ddeee54fad3c2462587922e, type: 3}
 --- !u!4 &9205780112603602050 stripped
@@ -87,6 +87,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9205780112603602050}
     m_Modifications:
+    - target: {fileID: 6091849738672977877, guid: af7931239aa7b5e479e4e5c2e6b460c3,
+        type: 3}
+      propertyPath: m_Name
+      value: CFXR ScreenDistortion Ring
+      objectReference: {fileID: 0}
     - target: {fileID: 1500792031305244176, guid: af7931239aa7b5e479e4e5c2e6b460c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,11 +156,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6091849738672977877, guid: af7931239aa7b5e479e4e5c2e6b460c3,
-        type: 3}
-      propertyPath: m_Name
-      value: CFXR ScreenDistortion Ring
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7931239aa7b5e479e4e5c2e6b460c3, type: 3}

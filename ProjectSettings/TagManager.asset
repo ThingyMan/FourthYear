@@ -9,6 +9,8 @@ TagManager:
   - SwitchHandsPos
   - Launcher
   - Weapon
+  - FxTemporaire
+  - PlayerBlocker
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - EnemyWall
+  - Player
+  - PlayerBlocker
   - 
   - 
   - 

@@ -63,5 +63,10 @@ public class PlayerRunState : PlayerBaseState
         {
             SwitchState(_factory.Walk());
         }
+
+        if (_ctx.IsAttacking == true && _ctx.TeleportComplete == true)
+        {
+            SwitchState(_factory.AttackL());
+        }
     }
 }

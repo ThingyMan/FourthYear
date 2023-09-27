@@ -34,7 +34,11 @@ public class GoblinFallState : GoblinBaseState
 
     public override void CheckSwitchStates()
     {
-        if(_ctx.IsGrounded == true)
+        if (_ctx.enemyCol._enemyHealth <= 0)
+        {
+            SwitchState(_factory.Death());
+        }
+        if (_ctx.IsGrounded == true)
         {
             SwitchState(_factory.Grounded());
         }

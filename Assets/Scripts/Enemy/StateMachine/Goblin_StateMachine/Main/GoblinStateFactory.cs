@@ -1,3 +1,5 @@
+using UnityEngine.UIElements;
+
 public class GoblinStateFactory
 {
     GoblinStateMachine _context;
@@ -7,6 +9,10 @@ public class GoblinStateFactory
         _context = currentContext;
     }
 
+    public GoblinBaseState Death()
+    {
+        return new GoblinDeathState(_context, this);
+    }
     public GoblinBaseState Grounded()
     {
         return new GoblinGroundedState(_context, this);
@@ -31,4 +37,6 @@ public class GoblinStateFactory
     {
         return new GoblinIdleState(_context, this);
     }
+
+
 }
